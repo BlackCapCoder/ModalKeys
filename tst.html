@@ -1,0 +1,26 @@
+<script src="Keyboard.js"></script>
+<script charset="utf-8">
+  kb = new Keyboard ();
+  window.addEventListener('keydown', kb.onkeydown);
+  window.addEventListener('keyup',   kb.onkeyup);
+
+  kb.mapFunction ('normal', 'ab', cnt => {
+    alert(cnt);
+  }, true);
+
+  kb.mapFunction ('insert', 'q', cnt => {
+    alert(cnt);
+  }, true);
+
+  kb.mapFunction ('normal', 'i', cnt => {
+    console.log('insert mode')
+    kb.mode = 'insert'
+  }, false);
+
+  kb.mapFunction ('insert', '<escape>', cnt => {
+    console.log('normal mode')
+    kb.mode = 'normal'
+  }, true);
+
+  kb.nmap ('abc', 'ab');
+</script>
